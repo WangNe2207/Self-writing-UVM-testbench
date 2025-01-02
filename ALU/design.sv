@@ -1,10 +1,4 @@
-//--------------------------------------------------------
-//ALU Design Version 1.0
-//--------------------------------------------------------
-
-
 /* 
-ALU Arithmetic and Logic Operations
 ----------------------------------------------------------------------
 |ALU_Sel|   ALU Operation
 ----------------------------------------------------------------------
@@ -19,29 +13,13 @@ ALU Arithmetic and Logic Operations
 */
 
 
-
-//--------------------------------------------------------
-// NOTE TO A VERIFICATION ENGINEER:
-//
-// AS A VERIFICATION ENGINEER, ONE SHOULD NEVER PEEK INTO
-// DESIGN AND TRY TO REVERSE ENGINEER WHAT'S HAPPENING.
-// JUST FOCUS ON GIVEN SPEC AND BUILD YOUR TESTBENCH ACCORDINGLY.
-//--------------------------------------------------------
-
-
-
-
-
-
-
-
 module alu(
   input clock,
   input reset,
-  input [7:0] A,B,  // ALU 8-bit Inputs                 
-  input [3:0] ALU_Sel,// ALU Selection
-  output reg [7:0] ALU_Out, // ALU 8-bit Output
-  output bit CarryOut // Carry Out Flag
+  input [7:0] A, B,              
+  input [3:0] ALU_Sel,
+  output reg [7:0] ALU_Out, 
+  output bit CarryOut 
 );
 
   reg [7:0] ALU_Result;
@@ -62,7 +40,7 @@ module alu(
   end
 
 
-  always @(*) //introduce a bug here, A B sensitivity only, change ALU_Sel during
+  always @(*) 
     begin
       case(ALU_Sel)
         4'b0000: // Addition
